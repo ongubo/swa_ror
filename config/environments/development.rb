@@ -62,4 +62,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  ENV["API_URL"] ='https://www.googleapis.com/civicinfo/v2'
+  ENV["API_KEY"] ="AIzaSyArC6LLZp_VB6PMdc7g3nGss-5vV-kvoy8"
 end

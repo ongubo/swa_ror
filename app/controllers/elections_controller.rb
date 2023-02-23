@@ -13,16 +13,16 @@ class ElectionsController < ApplicationController
 
    # GET /populate
    def populate
-    puts ["API_URL"]
+    puts ENV["API_URL"]
     query = { 
-      "key"  => "AIzaSyArC6LLZp_VB6PMdc7g3nGss-5vV-kvoy8",
+      "key"  => ENV["API_KEY"],
       "address"=> "new york"
     }
 
 
     # Get elections and representatives from google API
-    elections_response = HTTParty.get("https://www.googleapis.com/civicinfo/v2/elections",:query => query).parsed_response
-    representatives_response = HTTParty.get("https://www.googleapis.com/civicinfo/v2/representatives",:query => query).parsed_response
+    elections_response = HTTParty.get(ENV["API_URL"]+"/elections",:query => query).parsed_response
+    representatives_response = HTTParty.get(ENV["API_URL"]+"/representatives",:query => query).parsed_response
     json_elections = elections_response["elections"]
     json_representatives = representatives_response["officials"]
     
