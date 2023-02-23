@@ -1,24 +1,48 @@
-# README
+# SWA-ROR Readme File
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This readme is a template overview of the app
 
-Things you may want to cover:
+## Areas Covered
 
-* Ruby version
+### 1.Configuration
 
-* System dependencies
+- The app configs are located on environments development. Two env variables are enlisted.
 
-* Configuration
+```bash
+  ENV["API_URL"] = ***
+  ENV["API_KEY"] = ***
+```
 
-* Database creation
+These two are used to pull json data from a remote Google API endpoint and store the data in an sqlite3 database.If the API key fails , generate a new one from Google cloud console
 
-* Database initialization
+## 2. Run Locally
 
-* How to run the test suite
+Clone the project
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+  git clone https://link-to-project
+```
 
-* Deployment instructions
+Go to the project directory
 
-* ...
+```bash
+  cd swa_ror
+```
+
+Install dependencies
+
+```bash
+  gem install bundler
+```
+
+Next, migrate the database:
+
+```bash
+  rails db:migrate
+```
+
+Start the server
+
+```bash
+  rails s
+```
