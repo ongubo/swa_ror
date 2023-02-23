@@ -8,7 +8,7 @@ class ElectionsController < ApplicationController
       
     @elections = Election.all
 
-    render json: @elections.include(:representatives)
+    render json: @elections
   end
 
    # GET /populate
@@ -61,7 +61,8 @@ class ElectionsController < ApplicationController
   end
   # GET /elections/1
   def show
-    render json: @election.include(:representative), only: [:name, :party]
+    # render json: @election, include(:representative)
+    render json: @election, :include => { :representatives => { }}
   end
 
   # POST /elections
