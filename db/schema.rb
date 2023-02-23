@@ -22,11 +22,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_172103) do
 
   create_table "representatives", force: :cascade do |t|
     t.string "name"
+    t.integer "election_id"
     t.string "party"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["election_id"], name: "index_representatives_on_election_id"
     t.index ["name"], name: "unique_representative_name", unique: true
   end
 
+  add_foreign_key "representatives", "elections"
 end

@@ -8,7 +8,7 @@ class ElectionsController < ApplicationController
       
     @elections = Election.all
 
-    render json: @elections
+    render json: @elections.include(:representatives)
   end
 
    # GET /populate
@@ -41,10 +41,14 @@ class ElectionsController < ApplicationController
       end
     end
 
+    # count elections to set the upper limit. this will be used to randomly assign representatives
+    lmt= Election.count()
     json_representatives.each do |representative|
       params = {
         "name":representative["name"],
         "party":representative["party"],
+        # Randomly assign representatives to elections
+        "election_id":rand(1..lmt),
         "phone":representative["phones"][0]
       }
       if Representative.where(:name => representative["name"]).empty?
@@ -57,7 +61,7 @@ class ElectionsController < ApplicationController
   end
   # GET /elections/1
   def show
-    render json: @election
+    render json: @election.include(:representative), only: [:name, :party]
   end
 
   # POST /elections

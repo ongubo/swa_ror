@@ -12,6 +12,7 @@ class CreateElections < ActiveRecord::Migration[7.0]
     # Create representatives table 
     create_table :representatives do |t|
       t.string :name , index: { unique: true, name: 'unique_representative_name' }
+      t.references :election, index: true, foreign_key: true
       t.string :party
       t.string :phone
       t.timestamps
