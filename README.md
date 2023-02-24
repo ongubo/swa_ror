@@ -62,3 +62,7 @@ Ensure you have docker locally installed then build the app
 ```
 
 - To run the docker image that has already been built
+
+## 3. Project Flow
+
+The application fetches json data from the google Civic endpoint using Httparty then saves the data in the local sqlite3 db. This happens when you call the **/populate** endpoint. when this is done you can now view the elections on th UI using the **/get-elections** and **/get-election** endpoint. you can also CRUD on the elections table using postman to populate the data separately. Screenshots have been attached for easier clarification.
