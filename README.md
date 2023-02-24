@@ -66,3 +66,16 @@ Ensure you have docker locally installed then build the app
 ## 3. Project Flow
 
 The application fetches json data from the google Civic endpoint using Httparty then saves the data in the local sqlite3 db. This happens when you call the **/populate** endpoint. when this is done you can now view the elections on th UI using the **/get-elections** and **/get-election** endpoint. you can also CRUD on the elections table using postman to populate the data separately. Screenshots have been attached for easier clarification.
+
+## 4. Run Tests
+
+- Run tests for both API and UI (Elections ) controllers
+
+```bash
+ ruby -I test test/controllers/app_controller_test.rb -n controller_test
+```
+
+```bash
+ ruby -I test test/controllers/elections_controller_test.rb -n controller_test
+
+```
