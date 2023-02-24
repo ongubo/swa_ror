@@ -1,0 +1,38 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<% content_for :content do %>
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 mb-3">
+            <h4><%= @election.name %></h4>
+            <small class='text-muted'>Election Date: <%= @election['election_day'] %></small><br>
+            <i><%= @election['division'] %></i>
+            </div>
+
+            <table class='table table-bodered table-sm table-hover'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Party</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @representatives.each do |representative| %>
+                    <tr>
+                        <td><%= representative.name %></td>
+                        <td><%= representative['party'] %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+<% end %>
