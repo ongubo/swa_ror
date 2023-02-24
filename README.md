@@ -15,12 +15,12 @@ This readme is a template overview of the app
 
 These two are used to pull json data from a remote Google API endpoint and store the data in an sqlite3 database.If the API key fails , generate a new one from Google cloud console
 
-## 2. Run Locally
+## 2. Run Locally (Without docker)
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/ongubo/swa_ror.git
 ```
 
 Go to the project directory
@@ -46,3 +46,19 @@ Start the server
 ```bash
   rails s
 ```
+
+## 3. Run Locally (With docker)
+
+Ensure you have docker locally installed then build the app
+
+```bash
+  docker-compose up --build -d
+```
+
+- To build docker image and run container as a service **_i.e. in detached mode_**, for testing purposes you can leave out the **_-d_** switch to see logs.
+
+```bash
+  docker-compose up
+```
+
+- To run the docker image that has already been built
