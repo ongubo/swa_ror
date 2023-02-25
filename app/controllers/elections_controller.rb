@@ -62,12 +62,13 @@ class ElectionsController < ApplicationController
   # GET /elections/1
   def show
     # render json: @election, include(:representative)
+    @election = Election.find(params[:id])
     render json: @election, :include => { :representatives => { }}
   end
 
   # POST /elections
   def create
-    @election = Election.new(election_params)
+    @election = Election.new(elec_params)
 
     if @election.save
       render json: @election, status: :created, location: @election
@@ -78,7 +79,8 @@ class ElectionsController < ApplicationController
 
   # PATCH/PUT /elections/1
   def update
-    if @election.update(election_params)
+    @election = Election.find(params[:id])
+    if @election.update(elec_params)
       render json: @election
     else
       render json: @election.errors, status: :unprocessable_entity
@@ -87,6 +89,7 @@ class ElectionsController < ApplicationController
 
   # DELETE /elections/1
   def destroy
+    @election = Election.find(params[:id])
     @election.destroy
   end
 
@@ -97,7 +100,7 @@ class ElectionsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def election_params
-      params.require(:election).permit(:name)
+    def elec_params
+      params.require(:election).permit(:name,:division,:election_day)
     end
 end

@@ -1,0 +1,22 @@
+<div class='w-100 text-right'>
+<%= link_to "Elections", get_elections_path%>
+</div>
+<div class="col-12">
+        <div class="card-body">
+            <%= form_for @election do |f| %>
+            <div class="form-group">
+                <%= f.label :name %>
+                <%=  f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :election_day %>
+                <%=  f.date_field :election_day, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :division %>
+                <%=  f.text_field :division, class: "form-control" %>
+            </div>
+            <%= f.submit  %>
+            <% end %>
+        </div>
+</div>

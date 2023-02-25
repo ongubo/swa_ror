@@ -1,4 +1,8 @@
+
 <% content_for :content do %>
+<div class='w-100 text-right'>
+<%= link_to "Add new Election", new_elections_path%>
+</div>
 <table class='table table-bodered table-sm table-hover'>
   <thead>
     <tr>
@@ -15,7 +19,7 @@
         <td><%= election.name %></td>
         <td><%= election['election_day'] %></td>
         <td><%= election['division'] %></td>
-        <td><%= link_to "Show Election", election %></td>
+        <td><%= link_to "Show Election", get_elections_url%></td>
       </tr>
     <% end %>
   </tbody>
