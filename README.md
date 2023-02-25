@@ -87,4 +87,5 @@ The application fetches json data from the google Civic endpoint using Httparty 
 ![Alt text](/public/screenshots/el3.png?raw=true "Screenshots")
 ![Alt text](/public/screenshots/el4.png?raw=true "Screenshots")
 ![Alt text](/public/screenshots/el5.png?raw=true "Screenshots")
+![Alt text](/public/screenshots/el6.png?raw=true "Screenshots")
 ![Alt text](/public/screenshots/el7.png?raw=true "Screenshots")
